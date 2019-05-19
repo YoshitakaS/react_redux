@@ -1,6 +1,6 @@
 import React from 'react';
 import SideArea from './sideArea';
-import MainArea from './mainArea';
+import MainArea from '../containers/mainArea';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -47,19 +47,6 @@ export default class App extends React.Component {
       groupCount: 1,
       selectedGroup: "inbox"
     }
-  }
-
-  onAddTodo(label) {
-    let _state = Object.assign({}, this.state);
-    _state.todoCount++
-    let todoList = _state.todoList[_state.selectedGroup];
-    let todoItem = {
-      id: "item-" + _state.todoCount,
-      label: label,
-      completed: false
-    }
-    todoList.push(todoItem);
-    this.setState(_state);
   }
 
   onCompleteTodo(id) {
@@ -127,13 +114,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    let groupName = "";
-    for (let i = 0; i < this.state.groupList.length; i++) {
-      if (this.state.groupList[i].id == this.state.selectedGroup) {
-        groupName = this.state.groupList[i].label;
-        break;
-      }
-    }
 
     return (
       <div className='wrap'>
@@ -143,12 +123,7 @@ export default class App extends React.Component {
           onAddGroup={this.onAddGroup.bind(this)}
           onEditGroup={this.onEditGroup.bind(this)}
           onDeleteGroup={this.onDeleteGroup.bind(this)}/>
-        <MainArea
-          groupName={groupName}
-          todoList={this.state.todoList[this.state.selectedGroup]}
-          onAddTodo={this.onAddTodo.bind(this)}
-          onCompleteTodo={this.onCompleteTodo.bind(this)}
-          onDeleteTodo={this.onDeleteTodo.bind(this)}/>
+        <MainArea />
       </div>
     )
   }

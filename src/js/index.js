@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app'
+import { Provider } from 'react-redux'; /* storeとviewとのrenderの接続に使用 */
+import App from './components/app';
+import configureStore from './store/index';
+
+const store = configureStore();
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );

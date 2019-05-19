@@ -23,11 +23,15 @@
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^4.0.2",
     "gulp-watch": "^5.0.1",
+    "redux-devtools-extension": "^2.13.8",
     "webpack": "^4.30.0",
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6"
   }
 }
